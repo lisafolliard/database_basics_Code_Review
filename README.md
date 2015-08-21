@@ -9,8 +9,10 @@ This application gives salon owners the ability to add, update and delete stylis
 Setup
 
 $ git clone https://github.com/lisafolliard/database_basics_Code_Review.git
+
 $ cd hair_salon to enter project directory
 $ bundle to install program dependencies
+
 $ postgres to start a postgres server
 Open new terminal tab and run $ psql
 in PSQL user=# CREATE DATABASE hair_salon;
