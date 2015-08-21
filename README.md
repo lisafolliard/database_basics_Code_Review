@@ -2,9 +2,11 @@ Hair Salon is a website where hair salon owners can view a list of stylists and 
 
 By Lisa Folliard
 
+
 Description
 
 This application gives salon owners the ability to add, update and delete stylist information, as well as view clients associated with each stylist. There are two classes (Stylist and Client) and two psql tables (stylists and clients) used.
+
 
 Setup
 
@@ -30,12 +32,17 @@ open new tab and run $ ruby app.rb in the project directory to run sinatra app
 
 go to localhost:4567 in your browser to open webapp
 
+
 Technologies Used
 
 Written in Ruby
+
 Ran test site with Sinatra
+
 Error checking with RSpec and Capybara
+
 Database management with postgresql
+
 
 Legal
 
