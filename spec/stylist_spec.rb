@@ -42,7 +42,7 @@ describe(Stylist) do
   end
 
   describe('#update') do
-    it('updates the first or last name of stylist') do
+    it('updates values of a stylist') do
       new_stylist = Stylist.new({:firstname => 'Deen', :lastname => 'LaCovey', :id => nil})
       new_stylist.save()
       new_stylist.update({:firstname => 'Dawn'})
