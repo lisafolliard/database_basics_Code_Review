@@ -37,6 +37,13 @@ class Stylist
     new_stylist
   end
 
+  define_method(:update) do |fields_to_update|
+    @firstname = fields_to_update.fetch(:firstname, @firstname)
+    @lastname = fields_to_update.fetch(:lastname, @lastname)
+    @id = self.id()
+    DB.exec("UPDATE stylists SET firstname = '#{@firstname}', lastname = '#{@lastname}' WHERE id = #{@id};")
+  end
+
 
 
 
