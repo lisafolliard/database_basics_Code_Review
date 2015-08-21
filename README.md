@@ -1,5 +1,4 @@
-Hair Salon
-A website where hair salon owners can view a list of stylists and their clients, 8/21/2015
+Hair Salon is a website where hair salon owners can view a list of stylists and their clients, 8/21/2015
 
 By Lisa Folliard
 
