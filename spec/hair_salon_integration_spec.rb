@@ -38,3 +38,29 @@ describe('how to update details about a stylist', {:type => :feature}) do
     expect(page).to have_content('Dawn')
   end
 end
+
+# describe('add new client to a stylist', {:type => :feature}) do
+#   it('allows user to add clients to stylists') do
+#     test_ = List.new({:name => 'Work stuff', :id => nil})
+#     test_list.save()
+#     visit('/')
+#     click_link(test_list.name())
+#     fill_in('description', :with => 'finish project')
+#     fill_in('due date', :with => '2015-9-1')
+#     click_button('Add Task!')
+#     expect(page).to have_content('finish project')
+#   end
+# end
+
+# describe('how to delete a stylist', {:type => :feature}) do
+#   it('allows user to delete a stylist') do
+#     visit('/')
+#     fill_in('firstname', :with => 'Deen')
+#     fill_in('lastname', :with => 'LaCovey')
+#     click_button("Add Stylist")
+#     click_link('Dawn LaCovey')
+#     click_button('Delete Stylist')
+#     # expect(page).should_not have_content('Dawn LaCovey')
+#     expect(page).has_content?('Dawn LaCovey') == false
+#   end
+# end

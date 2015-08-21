@@ -6,7 +6,30 @@
 <p><a href="/stylists/<%= @stylist.id() %>/edit">Edit</a></p>
 
 
+<form action="/stylists/<%= @stylist.id() %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <button name="button" class="btn btn-danger">Delete Stylist</button>
+</form>
 
+</br>
 
 
 <a href="/">Back to Main Page</a>
+
+<!-- new stuff -->
+
+<h1><%= @stylist.firstname() %></h1>
+
+<% if @stylist.clients().any? %>
+  <h3>Here are all the clients for this stylist:</h3>
+
+
+<ul>
+   <% @stylist.clients().each() do |client| %>
+     <li><%= client.firstname() %></li>
+   <% end %>
+</ul>
+
+  <% else %>
+    <p>This stylist has no clients</p>
+  <% end %>

@@ -37,6 +37,18 @@ class Stylist
   end
 end
 
+  define_method(:clients) do
+    stylist_clients = []
+    clients = DB.exec("SELECT * FROM clients WHERE stylist_id = #{self.id()};")
+    clients.each() do |client|
+      firstname = client.fetch('firstname')
+      lastname = client.fetch('lastname')
+      stylist_id = client.fetch('stylist_id').to_i()
+      stylist_clients.push(Client.new({:firstname => firstname, :lastname => lastname, :stylist_id => stylist_id, :id => nil}))
+    end
+    stylist_clients
+  end
+
   define_method(:update) do |fields_to_update|
     @firstname = fields_to_update.fetch(:firstname, @firstname)
     @lastname = fields_to_update.fetch(:lastname, @lastname)
