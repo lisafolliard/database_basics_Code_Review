@@ -11,15 +11,23 @@ Setup
 $ git clone https://github.com/lisafolliard/database_basics_Code_Review.git
 
 $ cd hair_salon to enter project directory
+
 $ bundle to install program dependencies
 
 $ postgres to start a postgres server
+
 Open new terminal tab and run $ psql
+
 in PSQL user=# CREATE DATABASE hair_salon;
+
 in PSQL user=# \c hair_salon
+
 in PSQL user=# CREATE TABLE stylists (id serial PRIMARY KEY, firstname varchar, lastname varchar);
+
 in PSQL user=# CREATE TABLE clients (id serial PRIMARY KEY, firstname varchar, lastname varchar, stylist_id int);
+
 open new tab and run $ ruby app.rb in the project directory to run sinatra app
+
 go to localhost:4567 in your browser to open webapp
 
 Technologies Used
