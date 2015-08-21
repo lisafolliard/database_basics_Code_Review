@@ -24,3 +24,17 @@ describe('view details about an individual stylist', {:type => :feature}) do
     expect(page).to have_content('LaCovey')
   end
 end
+
+describe('how to update details about a stylist', {:type => :feature}) do
+  it('allows user to update details about a stylist') do
+    visit('/')
+    fill_in('firstname', :with => 'Deen')
+    fill_in('lastname', :with => 'LaCovey')
+    click_button("Add Stylist")
+    click_link('Deen LaCovey')
+    click_link('Edit')
+    fill_in('firstname', :with => 'Dawn')
+    click_button('Save')
+    expect(page).to have_content('Dawn')
+  end
+end

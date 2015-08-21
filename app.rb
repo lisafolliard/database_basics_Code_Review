@@ -26,3 +26,18 @@ get('/stylists/:id') do
   @stylist = Stylist.find(params.fetch("id").to_i())
   erb(:stylist)
 end
+
+get('/stylists/:id/edit') do
+  @stylist = Stylist.find(params.fetch("id").to_i())
+  erb(:stylist_edit)
+end
+
+patch('/stylists/:id') do
+  firstname = params.fetch('firstname')
+  lastname = params.fetch('lastname')
+  id = params.fetch("id").to_i()
+  thisstylist = Stylist.find(id)
+  thisstylist.update({:firstname => firstname, :lastname => lastname})
+  @stylist = thisstylist
+  erb(:stylist)
+end
