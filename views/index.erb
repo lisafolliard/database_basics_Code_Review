@@ -1,12 +1,13 @@
-<h1>Ruby's Beauty Parlor</h1>
-<h2>Our list of experienced Stylist</h2>
+<h2>Our list of experienced Stylists</h2>
 <ul>
   <% @stylists.each() do |stylist| %>
-  <li><a href='/stylists/<%= stylist.id() %>'><%=stylist.firstname() %></a></li>
+  <li><a href='/stylists/<%= stylist.id() %>'><%= stylist.firstname() %> <%= stylist.lastname() %></a></li>
   <% end %>
 </ul>
 
 <br><br>
+
+<p><i>Add a new stylist here:</i></p>
 
 <form action="/stylists" method="post">
   <div class="form-group">
