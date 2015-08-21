@@ -48,9 +48,18 @@ delete('/stylists/:id') do
   @stylists = Stylist.all()
   erb(:index)
 end
-#
-# get('/clients/new') do
-#   stylist_id = params.fetch("id").to_i()
-#   @list = List.find(list_id)
-#   erb(:task_form)
-# end
+
+get('/clients/new') do
+  stylist_id = params.fetch("id").to_i()
+  @stylist = Stylist.find(stylist_id)
+  erb(:client_form)
+end
+
+post('/clients') do
+  client = params.fetch('client')
+  stylist_id = params.fetch('stylist_id').to_i()
+  # @list = List.find(list_id)
+  @client = Client.new({:firstname => 'Deanna', :lastname => 'Monaco', :stylist_id => 1, :id => nil})
+  @client.save()
+  erb(:success)
+end

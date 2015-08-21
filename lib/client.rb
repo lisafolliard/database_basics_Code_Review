@@ -29,18 +29,18 @@ class Client
     end
     clients
   end
-  #
-  # define_method(:==) do |another_client|
-  #   self.id().==(another_client.id())
-  # end
-  #
-  # define_singleton_method(:find) do |id|
-  #   Client.all().each() do |client|
-  #     if client.id() == id
-  #       return client
-  #     end
-  #   end
-  # end
+
+  define_method(:==) do |another_client|
+    self.id().==(another_client.id())
+  end
+  
+  define_singleton_method(:find) do |id|
+    Client.all().each() do |client|
+      if client.id() == id
+        return client
+      end
+    end
+  end
 
   # define_method(:update) do |attributes|
   #   @firstname = attributes.fetch(:firstname, @firstname)

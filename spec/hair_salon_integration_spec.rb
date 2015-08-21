@@ -38,13 +38,13 @@ describe('how to update details about a stylist', {:type => :feature}) do
     expect(page).to have_content('Dawn')
   end
 end
-
+#
 # describe('add new client to a stylist', {:type => :feature}) do
 #   it('allows user to add clients to stylists') do
-#     test_ = List.new({:name => 'Work stuff', :id => nil})
-#     test_list.save()
+#     new_stylist = Stylist.new({:firstname => 'Dawn', :lastname => 'LaCovey', :id => nil})
+#     new_stylist.save()
 #     visit('/')
-#     click_link(test_list.name())
+#     click_link(new_stylist.firstname())
 #     fill_in('description', :with => 'finish project')
 #     fill_in('due date', :with => '2015-9-1')
 #     click_button('Add Task!')
