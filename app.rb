@@ -50,16 +50,22 @@ delete('/stylists/:id') do
 end
 
 get('/clients/new') do
-  stylist_id = params.fetch("id").to_i()
-  @stylist = Stylist.find(stylist_id)
+  @stylist = Stylist.find(params.fetch("id").to_i())
   erb(:client_form)
 end
 
-post('/clients') do
+post('/clients/new') do
   client = params.fetch('client')
-  stylist_id = params.fetch('stylist_id').to_i()
-  # @list = List.find(list_id)
-  @client = Client.new({:firstname => 'Deanna', :lastname => 'Monaco', :stylist_id => 1, :id => nil})
-  @client.save()
-  erb(:success)
+  new_client = Client.new({:firstname => firstname, :lastname => lastname, :stylist_id => stylist_id, :id => nil})
+  new_client.save()
+  redirect('/')
+
 end
+# post('/clients') do
+#   client = params.fetch('client')
+#   # stylist_id = params.fetch('stylist_id').to_i()
+#   # @list = List.find(list_id)
+#   @client = Client.new({:firstname => 'Deanna', :lastname => 'Monaco', :stylist_id => 1, :id => nil})
+#   @client.save()
+#   erb(:success)
+# end

@@ -33,7 +33,7 @@ class Client
   define_method(:==) do |another_client|
     self.id().==(another_client.id())
   end
-  
+
   define_singleton_method(:find) do |id|
     Client.all().each() do |client|
       if client.id() == id
@@ -45,12 +45,13 @@ class Client
   # define_method(:update) do |attributes|
   #   @firstname = attributes.fetch(:firstname, @firstname)
   #   @lastname = attributes.fetch(:lastname, @lastname)
-  #   @stylist_id = attributes.fetch(:stylist_id)
-  #   DB.exec("UPDATE clients SET firstname = '#{@firstname}', lastname = '#{@lastname}' WHERE stylist_id = #{@stylist_id};")
+  #   @stylist_id = attributes.fetch(:stylist_id, @stylist_id)
+  #   @id = self.id()
+  #   DB.exec("UPDATE clients SET firstname = '#{@firstname}', lastname = '#{@lastname}', stylist_id = #{@stylist_id} WHERE id = #{@id};")
   # end
 
   # define_method(:delete) do
-  #   DB.exec("DELETE FROM clients WHERE stylist_id = #{@id};")
+  #   DB.exec("DELETE FROM clients WHERE id = #{self.id()};")
   # end
 
 
