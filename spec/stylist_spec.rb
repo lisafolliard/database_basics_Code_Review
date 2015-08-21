@@ -1,3 +1,5 @@
+# require('spec-helper')
+
 # require('client')
 require('stylist')
 require('rspec')
@@ -15,7 +17,7 @@ end
 
 describe(Stylist) do
 
-  describe('#initialize') do
+  describe('#save') do
     it('adds a new stylist') do
       new_stylist = Stylist.new({:firstname => 'Dawn', :lastname => 'LaCovey', :id => nil})
       new_stylist.save()
