@@ -38,13 +38,14 @@ class Client
       end
     end
   end
-  #
-  # # define_method(:update) do |attributes|
-  # #   @firstname = attributes.fetch(:firstname, @firstname)
-  # #   @lastname = attributes.fetch(:lastname, @lastname)
-  # #   DB.exec("UPDATE clients SET firstname = '#{@firstname}', lastname = '#{@lastname}' WHERE stylist_id = #{@id};")
-  # # end
-  #
+
+  # define_method(:update) do |attributes|
+  #   @firstname = attributes.fetch(:firstname, @firstname)
+  #   @lastname = attributes.fetch(:lastname, @lastname)
+  #   @stylist_id = attributes.fetch(:stylist_id)
+  #   DB.exec("UPDATE clients SET firstname = '#{@firstname}', lastname = '#{@lastname}' WHERE stylist_id = #{@stylist_id};")
+  # end
+
   # define_method(:delete) do
   #   DB.exec("DELETE FROM clients WHERE stylist_id = #{@id};")
   # end
