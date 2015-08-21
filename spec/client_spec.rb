@@ -31,6 +31,27 @@ describe(Client) do
     end
   end
 
+  describe('#==') do
+    it('returns true if two IDs are equal') do
+      new_client = Client.new({:firstname => 'Deanna', :lastname => 'Monaco', :id => nil})
+      new_client2 = Client.new({:firstname => 'Jessica', :lastname => 'Acuna', :id => nil})
+      expect(new_client).to(eq(new_client2))
+    end
+  end
+
+  describe('.find') do
+    it('finds an client based on ID') do
+      new_client = Client.new({:firstname => 'Deanna', :lastname => 'Monaco', :id => nil})
+      new_client.save()
+      new_client2 = Client.new({:firstname => 'Jessica', :lastname => 'Acuna', :id => nil})
+      new_client2.save()
+      # id = new_client.id()
+      expect(Client.find(new_client.id())).to(eq(new_client))
+    end
+  end
+
+
+
 
 
 

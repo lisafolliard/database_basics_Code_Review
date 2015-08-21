@@ -1,6 +1,6 @@
 # require('spec-helper')
 
-# require('client')
+require('client')
 require('stylist')
 require('rspec')
 require('pg')
