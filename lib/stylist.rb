@@ -12,6 +12,20 @@ class Stylist
     @id = result_set.first().fetch('id').to_i()
   end
 
+  define_singleton_method(:all) do
+    stylists = []
+    result_set = DB.exec("SELECT * FROM stylists;")
+    result_set.each() do |row|
+      firstname = row.fetch("firstname")
+      lastname = row.fetch("lastname")
+      id = row.fetch('id').to_i()
+      new_stylist = Stylist.new({:firstname => firstname, :lastname => lastname, :id => id})
+      stylists.push(new_stylist)
+    end
+    stylists
+  end
+
+
 
 
 
