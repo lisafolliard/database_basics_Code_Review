@@ -10,7 +10,7 @@ This application gives salon owners the ability to add, update and delete stylis
 
 Setup
 
-$ git clone https://github.com/lisafolliard/database_basics_Code_Review.git
+$ git clone https://github.com/lisafolliard/hair_salon_Code_Review
 
 $ cd hair_salon to enter project directory
 
