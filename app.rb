@@ -54,13 +54,12 @@ get('/clients/new') do
   erb(:client_form)
 end
 
-post('/clients/new') do
-  client = params.fetch('client')
-  new_client = Client.new({:firstname => firstname, :lastname => lastname, :stylist_id => stylist_id, :id => nil})
-  new_client.save()
-  redirect('/')
-
-end
+# post('/clients/new') do
+#   client = params.fetch('client')
+#   new_client = Client.new({:firstname => firstname, :lastname => lastname, :stylist_id => stylist_id, :id => nil})
+#   new_client.save()
+#   redirect('/')
+# end
 # post('/clients') do
 #   client = params.fetch('client')
 #   # stylist_id = params.fetch('stylist_id').to_i()

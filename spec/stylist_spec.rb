@@ -46,6 +46,4 @@ describe(Stylist) do
     end
   end
 
-
-
 end #spec end
