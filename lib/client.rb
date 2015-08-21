@@ -14,18 +14,18 @@ class Client
     # @id = result_set.first().fetch("stylist_id")
   end
 
-  # define_singleton_method(:all) do
-  #   clients = []
-  #   result_set = DB.exec("SELECT * FROM clients;")
-  #   result_set.each() do |row|
-  #     firstname = row.fetch('firstname')
-  #     lastname = row.fetch('lastname')
-  #     id = row.fetch('stylist_id')
-  #     new_client = Client.new({:firstname => firstname, :lastname => lastname, :id => id})
-  #     clients.push(new_client)
-  #   end
-  #   clients
-  # end
+  define_singleton_method(:all) do
+    clients = []
+    result_set = DB.exec("SELECT * FROM clients;")
+    result_set.each() do |row|
+      firstname = row.fetch('firstname')
+      lastname = row.fetch('lastname')
+      stylist_id = row.fetch('stylist_id').to_i()
+      new_client = Client.new({:firstname => firstname, :lastname => lastname, :stylist_id => stylist_id})
+      clients.push(new_client)
+    end
+    clients
+  end
   #
   # define_method(:==) do |another_client|
   #   self.id().==(another_client.id())
