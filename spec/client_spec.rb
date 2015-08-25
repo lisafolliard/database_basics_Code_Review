@@ -34,6 +34,16 @@ describe(Client) do
     end
   end
 
+  describe('#update') do
+    it('updates values of a client') do
+      new_client = Client.new({:name => 'Den Monaco', :stylist_id => 1, :id => nil})
+      new_client.save()
+      new_client2 = Client.new({:name => 'Jess Acuna', :stylist_id => 1, :id => nil})
+      new_client2.save()
+      new_client.update({:name => 'Deanna Monaco'})
+      expect(new_client.name()).to(eq('Deanna Monaco'))
+    end
+  end
 
 
 
