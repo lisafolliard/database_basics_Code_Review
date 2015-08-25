@@ -1,30 +1,25 @@
-require('pry')
-
 class Client
-  attr_reader(:firstname, :lastname, :stylist_id, :id)
+  attr_reader(:name, :stylist_id, :id)
 
   define_method(:initialize) do |attributes|
-    @firstname = attributes.fetch(:firstname)
-    @lastname = attributes.fetch(:lastname)
+    @name = attributes.fetch(:name)
     @stylist_id = attributes.fetch(:stylist_id)
     @id = attributes.fetch(:id)
   end
 
   define_method(:save) do
-    result_set = DB.exec("INSERT INTO clients (firstname, lastname, stylist_id) VALUES ('#{@firstname}', '#{@lastname}', '#{@stylist_id}') RETURNING id;")
-    # @id = results.first().fetch('id')
-    # @id = result_set.first().fetch("stylist_id")
+    result_set = DB.exec("INSERT INTO clients (name, stylist_id) VALUES ('#{@name}', '#{@stylist_id}') RETURNING id;")
+    @id = result_set.first().fetch('id').to_i()
   end
 
   define_singleton_method(:all) do
     clients = []
     result_set = DB.exec("SELECT * FROM clients;")
-    result_set.each() do |row|
-      firstname = row.fetch('firstname')
-      lastname = row.fetch('lastname')
-      stylist_id = row.fetch('stylist_id').to_i()
-      id = row.fetch('id').to_i()
-      new_client = Client.new({:firstname => firstname, :lastname => lastname, :stylist_id => stylist_id, :id => nil})
+    result_set.each() do |client|
+      name = client.fetch('name')
+      stylist_id = client.fetch('stylist_id').to_i()
+      id = client.fetch('id').to_i()
+      new_client = Client.new({:name => name, :stylist_id => stylist_id, :id => id})
       clients.push(new_client)
     end
     clients
@@ -42,17 +37,18 @@ class Client
     end
   end
 
-  # define_method(:update) do |attributes|
-  #   @firstname = attributes.fetch(:firstname, @firstname)
-  #   @lastname = attributes.fetch(:lastname, @lastname)
-  #   @stylist_id = attributes.fetch(:stylist_id, @stylist_id)
-  #   @id = self.id()
-  #   DB.exec("UPDATE clients SET firstname = '#{@firstname}', lastname = '#{@lastname}', stylist_id = #{@stylist_id} WHERE id = #{@id};")
-  # end
+  define_method(:update) do |attributes|
+    @name = attributes.fetch(:name, @name)
+    @stylist_id = attributes.fetch(:stylist_id, @stylist_id)
+    @id = self.id()
+    DB.exec("UPDATE clients SET name = '#{@name}' WHERE id = #{@id};")
+    DB.exec("UPDATE clients SET stylist_id = '#{@stylist_id}' WHERE id = #{@id};")
 
-  # define_method(:delete) do
-  #   DB.exec("DELETE FROM clients WHERE id = #{self.id()};")
-  # end
+  end
+
+  define_method(:delete) do
+    DB.exec("DELETE FROM clients WHERE id = #{self.id()};")
+  end
 
 
 end #class method end
