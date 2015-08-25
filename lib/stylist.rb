@@ -10,19 +10,19 @@ class Stylist
     result_set = DB.exec("INSERT INTO stylists (name) VALUES ('#{@name}') RETURNING id;")
     @id = result_set.first().fetch('id').to_i()
   end
-  # 
-  # define_singleton_method(:all) do
-  #   stylists = []
-  #   result_set = DB.exec("SELECT * FROM stylists;")
-  #   result_set.each() do |stylist|
-  #     id = stylist.fetch('id').to_i()
-  #     name = stylist.fetch("name")
-  #     new_stylist = Stylist.new({:name => name, :id => id})
-  #     stylists.push(new_stylist)
-  #   end
-  #   stylists
-  # end
-  #
+
+  define_singleton_method(:all) do
+    stylists = []
+    result_set = DB.exec("SELECT * FROM stylists;")
+    result_set.each() do |stylist|
+      id = stylist.fetch('id').to_i()
+      name = stylist.fetch("name")
+      new_stylist = Stylist.new({:name => name, :id => id})
+      stylists.push(new_stylist)
+    end
+    stylists
+  end
+
   # define_method(:==) do |another_stylist|
   #   self.id().==(another_stylist.id())
   # end
