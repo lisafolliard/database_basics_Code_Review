@@ -41,8 +41,11 @@ class Stylist
     DB.exec("UPDATE stylists SET name = '#{@name}' WHERE id = #{@id};")
   end
   
+  define_method(:delete) do
+    DB.exec("DELETE FROM stylists WHERE id = #{self.id()};")
+    DB.exec("DELETE FROM clients WHERE stylist_id = #{self.id()}")
+  end
 
-  #
   # define_method(:clients) do
   #   stylist_clients = []
   #   clients = DB.exec("SELECT * FROM clients WHERE stylist_id = #{self.id()};")
@@ -56,10 +59,6 @@ class Stylist
   # end
   #
 
-  #
-  # define_method(:delete) do
-  #   DB.exec("DELETE FROM stylists WHERE id = #{self.id()};")
-  #   DB.exec("DELETE FROM clients WHERE stylist_id = #{self.id()}")
-  # end
+
 
 end #class method end
