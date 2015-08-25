@@ -10,11 +10,11 @@ describe(Client) do
     end
   end
 
-  # describe('.all') do
-  #   it('returns all the clients in database') do
-  #     expect(Client.all()).to(eq([]))
-  #   end
-  # end
+  describe('.all') do
+    it('returns all the clients in database') do
+      expect(Client.all()).to(eq([]))
+    end
+  end
 
 
 
