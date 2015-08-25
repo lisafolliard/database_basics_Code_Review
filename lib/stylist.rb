@@ -23,17 +23,17 @@ class Stylist
     stylists
   end
 
-  # define_method(:==) do |another_stylist|
-  #   self.id().==(another_stylist.id())
-  # end
-  #
-  # define_singleton_method(:find) do |id|
-  #   Stylist.all().each() do |stylist|
-  #     if stylist.id() == id
-  #       return stylist
-  #     end
-  #   end
-  # end
+  define_method(:==) do |another_stylist|
+    self.id().==(another_stylist.id())
+  end
+
+  define_singleton_method(:find) do |id|
+    Stylist.all().each() do |stylist|
+      if stylist.id() == id
+        return stylist
+      end
+    end
+  end
   #
   # define_method(:clients) do
   #   stylist_clients = []
