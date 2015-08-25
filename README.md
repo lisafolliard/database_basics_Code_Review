@@ -10,7 +10,7 @@ This application gives salon owners the ability to add, update and delete stylis
 
 Setup
 
-$ git clone https://github.com/lisafolliard/hair_salon_Code_Review
+$ git clone ADD URL HERE @@@@@@@@
 
 $ cd hair_salon to enter project directory
 
@@ -27,6 +27,8 @@ in PSQL user=# \c hair_salon
 in PSQL user=# CREATE TABLE stylists (id serial PRIMARY KEY, firstname varchar, lastname varchar);
 
 in PSQL user=# CREATE TABLE clients (id serial PRIMARY KEY, firstname varchar, lastname varchar, stylist_id int);
+
+in PSQL user=# CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
 
 open new tab and run $ ruby app.rb in the project directory to run sinatra app
 
