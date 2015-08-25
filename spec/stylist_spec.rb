@@ -34,4 +34,13 @@ describe(Stylist) do
     end
   end
 
+  describe('#update') do
+    it('updates values of a stylist') do
+      new_stylist = Stylist.new({:name => 'Deen', :id => nil})
+      new_stylist.save()
+      new_stylist.update({:name => 'Dawn'})
+      expect(new_stylist.name()).to(eq('Dawn'))
+    end
+  end
+
 end #spec end
