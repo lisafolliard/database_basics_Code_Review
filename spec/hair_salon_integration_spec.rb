@@ -11,3 +11,13 @@ describe('adding a stylist', {:type => :feature}) do
     expect(page).to have_content('Dawn LaCovey')
   end
 end
+
+describe('view details about an individual stylist', {:type => :feature}) do
+  it('allows user to click on individual stylist link and view details about that stylist') do
+    visit('/')
+    fill_in('name', :with => 'Dawn LaCovey')
+    click_button("Add Stylist")
+    click_link('Dawn LaCovey')
+    expect(page).to have_content('Dawn LaCovey')
+  end
+end

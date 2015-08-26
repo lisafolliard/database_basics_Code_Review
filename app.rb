@@ -21,11 +21,10 @@ post('/stylists/') do
   redirect('/')
 end
 
-#
-# get('/stylists/:id') do
-#   @stylist = Stylist.find(params.fetch('id').to_i())
-#   erb(:stylist)
-# end
+get('/stylists/:id') do
+  @stylist = Stylist.find(params.fetch('id').to_i())
+  erb(:stylist)
+end
 
 
 #
