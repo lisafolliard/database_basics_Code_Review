@@ -15,7 +15,7 @@ end
 
 post('/stylists/') do
   name = params.fetch('name')
-  new_stylist = Stylist.new({:name => 'Dawn LaCovey', :id => nil})
+  new_stylist = Stylist.new({:name => name, :id => nil})
   new_stylist.save()
   @stylists = Stylist.all()
   redirect('/')
@@ -26,22 +26,19 @@ get('/stylists/:id') do
   erb(:stylist)
 end
 
+get('/stylists/:id/edit') do
+  @stylist = Stylist.find(params.fetch("id").to_i())
+  erb(:stylist_edit)
+end
 
-#
-# get('/stylists/:id/edit') do
-#   @stylist = Stylist.find(params.fetch("id").to_i())
-#   erb(:stylist_edit)
-# end
-#
-# patch('/stylists/:id') do
-#   firstname = params.fetch('firstname')
-#   lastname = params.fetch('lastname')
-#   id = params.fetch("id").to_i()
-#   this_stylist = Stylist.find(id)
-#   this_stylist.update({:firstname => firstname, :lastname => lastname})
-#   @stylist = this_stylist
-#   erb(:stylist)
-# end
+patch('/stylists/:id') do
+  name = params.fetch('name')
+  id = params.fetch("id").to_i()
+  this_stylist = Stylist.find(id)
+  this_stylist.update({:name => name})
+  @stylist = this_stylist
+  erb(:stylist)
+end
 #
 # delete('/stylists/:id') do
 #   @stylist = Stylist.find(params.fetch("id").to_i())
