@@ -34,3 +34,15 @@ describe('how to update details about a stylist', {:type => :feature}) do
     expect(page).to have_content('Dawn LaCovey')
   end
 end
+
+describe('how to delete a stylist', {:type => :feature}) do
+  it('allows user to delete a stylist') do
+    visit('/')
+    fill_in('name', :with => 'Dawn LaCovey')
+    click_button("Add Stylist")
+    click_link('Dawn LaCovey')
+    click_button('Delete Stylist')
+    expect(page).should_not have_content('Dawn LaCovey')
+    # expect(page).has_content?('Dawn LaCovey') == false
+  end
+end

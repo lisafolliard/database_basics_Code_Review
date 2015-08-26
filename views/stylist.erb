@@ -3,6 +3,9 @@
 <p><a href="/stylists/<%= @stylist.id() %>/edit">Edit Name</a></p>
 </br></br>
 
-
+<form action="/stylists/<%= @stylist.id() %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <button name="button" class="btn btn-danger">Delete Stylist</button>
+</form>
 
 <a href="/">Home</a>

@@ -39,14 +39,14 @@ patch('/stylists/:id') do
   @stylist = this_stylist
   erb(:stylist)
 end
-#
-# delete('/stylists/:id') do
-#   @stylist = Stylist.find(params.fetch("id").to_i())
-#   @stylist.delete()
-#   @stylists = Stylist.all()
-#   erb(:index)
-# end
-#
+
+delete('/stylists/:id') do
+  @stylist = Stylist.find(params.fetch("id").to_i())
+  @stylist.delete()
+  @stylists = Stylist.all()
+  erb(:index)
+end
+
 # get('/clients/new') do
 #   # stylist_id = params.fetch('id').to_i()
 #   # @stylist = Stylist.find(params.fetch("id").to_i())
