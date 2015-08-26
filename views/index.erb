@@ -1,7 +1,7 @@
 <h2>Our list of experienced Stylists</h2>
 <ul>
   <% @stylists.each() do |stylist| %>
-  <li><a href='/stylists/<%= stylist.id() %>'><%= stylist.firstname() %> <%= stylist.lastname() %></a></li>
+  <li><a href='/stylists/<%= stylist.id() %>'><%= stylist.name() %></a></li>
   <% end %>
 </ul>
 
@@ -11,11 +11,8 @@
 
 <form action="/stylists/" method="post">
   <div class="form-group">
-    <label for="firstname">First name:</label>
-    <input type="text" name="firstname" >
-    <br>
-    <label for="lastname">Last name:</label>
-    <input type="text" name="lastname" >
+    <label for="name">Name:</label>
+    <input type="text" name="name" >
   </div>
     <button name="button" type="submit">Add Stylist</button>
 </form>
