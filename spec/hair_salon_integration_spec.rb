@@ -46,3 +46,27 @@ describe('how to delete a stylist', {:type => :feature}) do
     # expect(page).has_content?('Dawn LaCovey') == false
   end
 end
+
+# describe('add new client to a stylist', {:type => :feature}) do
+#   it('allows user to add clients to stylists') do
+#     new_stylist = Stylist.new({:name => 'Dawn LaCovey', :id => nil})
+#     new_stylist.save()
+#     visit('/')
+#     fill_in('name', :with => 'Dawn LaCovey')
+#     click_button("Add Stylist")
+#     click_link('Dawn LaCovey')
+#     click_button('Add New Client')
+#     expect(page).to have_content("Deanna Monaco")
+#   end
+# end
+#
+#     visit('/')
+#     # click_link(new_stylist.firstname())
+#     click_link('Dawn LaCovey')
+#     click_link('Add a New Client')
+#     fill_in('firstname', :with => 'Deanna')
+#     fill_in('lastname', :with => 'Monaco')
+#     click_button('Add New Client')
+#     expect(page).to have_content('Deanna')
+#   end
+# end
