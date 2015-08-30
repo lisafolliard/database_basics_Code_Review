@@ -64,12 +64,11 @@ get('/client/:id') do
   erb(:client)
 end
 
-#
-# # post('/clients') do
-# #   client = params.fetch('client')
-# #   # stylist_id = params.fetch('stylist_id').to_i()
-# #   # @list = List.find(list_id)
-# #   @client = Client.new({:firstname => 'Deanna', :lastname => 'Monaco', :stylist_id => 1, :id => nil})
-# #   @client.save()
-# #   erb(:success)
-# # end
+post('/clients/:id') do
+  name = params.fetch('name')
+  # stylist_id = params.fetch('stylist_id').to_i()
+  # @list = List.find(list_id)
+  @client = Client.new({:name => name, :stylist_id => stylist_id, :id => nil})
+  @client.save()
+  erb(:success)
+end
