@@ -64,6 +64,20 @@ get('/client/:id') do
   erb(:client)
 end
 
+get('/clients/:id/edit') do
+  @client = Client.find(params.fetch("id").to_i())
+  erb(:client_edit)
+end
+
+patch('/clients/:id') do
+  name = params.fetch('name')
+  id = params.fetch("id").to_i()
+  this_client = Client.find(id)
+  this_client.update({:name => name})
+  @client = this_client
+  erb(:client)
+end
+
 post('/clients/:id') do
   name = params.fetch('name')
   # stylist_id = params.fetch('stylist_id').to_i()

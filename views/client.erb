@@ -1,1 +1,3 @@
-<h2>Client Page for <i> <%= @client.name %> </i></h2>
+<h2>Client Details for <i> <%= @client.name %> </i></h2>
+
+<p><a href="/clients/<%= @client.id() %>/edit">Edit Client Name</a></p>
