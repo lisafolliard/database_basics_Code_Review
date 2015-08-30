@@ -12,9 +12,9 @@
 <% if @stylist.clients().any? %>
   <h3>Here are all the clients for this stylist:</h3>
     <ul>
-       <% @stylist.clients().each() do |client| %>
-       <li><a href='/clients/<%= client.id() %>'><%= client.name() %></a></li>
-<% end %>
+      <% @stylist.clients().each() do |client| %>
+        <li><a href='/clients/<%= client.id() %>'><%= client.name() %></a></li>
+      <% end %>
     </ul>
 <% else %>
   <h3>This stylist has no clients</h3>
@@ -22,17 +22,14 @@
 
 </br>
 
-  <form action="/stylists/<%= @stylist.id() %>" method="post">
-    <input id="stylist_id" name="stylist_id" type="hidden" value="<%= @stylist.id() %>">
-
+<form action="/stylists/<%= @stylist.id() %>" method="post">
+  <input id="stylist_id" name="stylist_id" type="hidden" value="<%= @stylist.id() %>">
     <div class='form-group'>
       <label for='name'>Client Name</label>
       <input id='name' name='name' type='text' class='form-control'>
-
- </br>
-
-    <button type="submit" class="btn btn-warning">Add New Client</button>
+        </br>
+      <button type="submit" class="btn btn-warning">Add New Client</button>
     </div>
-  </form>
+</form>
 
 <a href="/">Return to Home Page</a>
