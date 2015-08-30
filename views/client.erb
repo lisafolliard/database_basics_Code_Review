@@ -1,3 +1,12 @@
-<h2>Client Details for <i> <%= @client.name %> </i></h2>
+<h2>Client <i> <%= @client.name %> </i></h2>
 
 <p><a href="/clients/<%= @client.id() %>/edit">Edit Client Name</a></p>
+
+<form action="/clients/<%= @client.id() %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <button name="button" class="btn btn-danger">Delete Client</button>
+</form>
+
+</br>
+
+<a href="/">Return to Home Page</a>

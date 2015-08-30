@@ -23,6 +23,8 @@ end
 
 get('/stylists/:id') do
   @stylist = Stylist.find(params.fetch('id').to_i())
+
+  # @clients = @stylist.clients()
   erb(:stylist)
 end
 
@@ -59,7 +61,7 @@ post('/stylists/:id') do
   erb(:stylist)
 end
 
-get('/client/:id') do
+get('/clients/:id') do
   @client = Client.find(params.fetch('id').to_i())
   erb(:client)
 end
@@ -84,5 +86,12 @@ post('/clients/:id') do
   # @list = List.find(list_id)
   @client = Client.new({:name => name, :stylist_id => stylist_id, :id => nil})
   @client.save()
-  erb(:success)
+  erb(:client)
+end
+#
+delete('/clients/:id') do
+  @client = Client.find(params.fetch('id').to_i())
+  @client.delete
+  # @clients = Client.all()
+  erb(:client_delete)
 end

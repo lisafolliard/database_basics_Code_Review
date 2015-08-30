@@ -1,1 +1,45 @@
-<li><%= client.name() %></li>
+
+  client_id = params.fetch('id').to_i
+  client = Client.find(client_id)
+  client.delete
+  @clients = Client.all()
+
+  stylist_id = params.fetch('stylist_id').to_i()
+  @stylist = Stylist.find(stylist_id)
+
+  # @stylists = Stylist.all()
+
+  # @client = Client.find(params.fetch("id").to_i())
+  # @client.delete()
+  # @clients = Client.all()
+  erb(:stylist)
+end
+
+
+
+patch("/clients/:id") do
+  client_id = params.fetch("id").to_i()
+  @client = Clients.find(client_id)
+  stylist_id = params.fetch("stylist_id")
+  @client.update({:stylist_id => stylist_id})
+  @stylists = Stylists.all()
+  erb(:client_info)
+end
+
+
+
+  <li><a href='/clients/<%= client.id() %>'><%= client.name() %></a></li>
+
+
+
+  post('/stylists/:id') do
+    name = params.fetch('name')
+    stylist_id = params.fetch('stylist_id').to_i()
+    @stylist = Stylist.find(stylist_id)
+    @client = Client.new({:name => name, :stylist_id => stylist_id, :id => nil})
+    @client.save()
+    # new_client = Stylist.new({:firstname => firstname, :lastname => lastname, :id => nil})
+    # new_client.save()
+    # @stylists = Stylist.all()
+    erb(:stylist)
+  end

@@ -43,14 +43,11 @@ describe('how to delete a stylist', {:type => :feature}) do
     click_link('Dawn LaCovey')
     click_button('Delete Stylist')
     expect(page).should_not have_content('Dawn LaCovey')
-    # expect(page).has_content?('Dawn LaCovey') == false
   end
 end
 
 describe('add new client to a stylist', {:type => :feature}) do
   it('allows user to add clients to stylists') do
-    # new_stylist = Stylist.new({:name => 'Dawn LaCovey', :id => nil})
-    # new_stylist.save()
     visit('/')
     fill_in('name', :with => 'Lisa Weaver')
     click_button("Add Stylist")
@@ -71,5 +68,35 @@ describe('view individual client details', {:type => :feature}) do
     click_button('Add New Client')
     click_link('Deanna Monaco')
     expect(page).to have_content("Deanna Monaco")
+  end
+end
+
+describe('how to update details about a client', {:type => :feature}) do
+  it('allows user to update details about a client') do
+    visit('/')
+    fill_in('name', :with => 'Lisa Weaver')
+    click_button("Add Stylist")
+    click_link('Lisa Weaver')
+    fill_in('name', :with => 'Dena Monaco')
+    click_button('Add New Client')
+    click_link('Dena Monaco')
+    click_link('Edit')
+    fill_in('name', :with => 'Deanna Monaco')
+    click_button('Save')
+    expect(page).to have_content("Deanna Monaco")
+  end
+end
+
+describe('how to delete a client', {:type => :feature}) do
+  it('allows user to delete a client') do
+    visit('/')
+    fill_in('name', :with => 'Lisa Weaver')
+    click_button("Add Stylist")
+    click_link('Lisa Weaver')
+    fill_in('name', :with => 'Dena Monaco')
+    click_button('Add New Client')
+    click_link('Dena Monaco')
+    click_button('Delete Client')
+    expect(page).should_not have_content("Dena Monaco")
   end
 end
